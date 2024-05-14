@@ -1,7 +1,7 @@
 # vimc4
 A [Vim](https://www.vim.org/) plugin for [CFOUR](https://cfour.uni-mainz.de/cfour/).
 
-# Install
+## Install
 
 1. Install [vim-plug](https://github.com/junegunn/vim-plug?tab=readme-ov-file#vim)
 ```bash
@@ -22,7 +22,7 @@ call plug#begin()
 "   - Avoid using standard Vim directory names like 'plugin'
 
 " Make sure you use single quotes
-Plug 'the-pawel-wojcik/vimc4'
+Plug 'the-pawel-wojcik/vim-cfour'
 call plug#end()
 ```
 

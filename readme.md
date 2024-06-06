@@ -30,3 +30,48 @@ call plug#end()
 4. Issue the command `:PlugInstall`.
 
 Other vim-plug [commands](https://github.com/junegunn/vim-plug?tab=readme-ov-file#commands)
+
+## Features 
+1. Colored ZMAT.
+2. Colored elements of the output.
+3. Folded output. Unfold with `za` read at `:help usr_28`. Learn how to
+   en/dis-able below.
+
+
+### Conditional features
+1. Display molecule from the ZMAT file.
+Requirements: [cfour parser](https://github.com/the-pawel-wojcik/cfour_parser),
+[jmol](https://jmol.sourceforge.net/) and
+[CFOUR](https://cfour.uni-mainz.de/cfour/) installed on your computer (only
+if `xjoda` is needed from CFOUR). Additionally you should have the following script named `showit.sh` visible from your `PATH`
+```bash
+#!/usr/bin/bash
+
+home=$(pwd)
+tmpdir=$(mktemp -d)
+cp ZMAT $tmpdir
+cd $tmpdir
+
+# The output needs to be surrounded by the section opening and closing labels 
+# otherwise the parser will not be interested in parsing.
+c4out=output.c4
+echo "--invoking executable--" > $c4out
+which xjoda >> $c4out
+# See man 1 time for the environmental variable TIME
+export TIME="--executable xjoda finished with status %x in %e seconds (walltime)."
+# For the $TIME to work you need to use the full program not the bash's builtin
+/usr/bin/time xjoda >> $c4out 2>> $c4out
+ 
+python -m cfour_parser -j "$c4out" > "$c4out".json
+# this one will be available online soon
+~/Code/chemistry/cfour/processors/geometry.py -x "$c4out".json > $home/geometry.xyz
+cd $home
+rm -r $tmpdir
+jmol.sh -L -g2000x1000 geometry.xyz
+```
+
+After all this effor you can type `:make` to view the molecule. I use the extra
+remap
+```vimscript
+nnoremap <leader>m <cmd>make<CR>
+```

@@ -22,19 +22,6 @@ set foldtext=C4foldtext()
 " The showit.sh script does clever stuff with eventually shows the molecule 
 " that is stored in a ZMAT file
 set makeprg=showit.sh
-" Here a version of the showit.sh
-" #!/usr/bin/bash
-
-" home=$(pwd)
-" tmpdir=$(mktemp -d)
-" cp ZMAT $tmpdir/
-" cd $tmpdir
-" xjoda > output.c4
-" # well... you need a parser of the QCOMP section of the CFOUR's output
-" ~/Code/chemistry/cfour/parsers/geometry.py output.c4 -v > $home/geometry.xyz
-" cd $home
-" rm -r $tmpdir
-" ~/chemistry/tools/jmol-14.32.82/jmol.sh -L -g2000x1000 geometry.xyz
 
 " See the last section of 41.10
 if exists("g:c4loaded")

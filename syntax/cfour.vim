@@ -639,6 +639,9 @@ syn match basisInput 'YSLEE' contained
 " Extra sections {{{
 sy region c4excite start=/%excite\*/ end=/^\s*$/
 sy region c4excite start=/%nearthis\*/ end=/^\s*$/
+sy region c4excite start=/%grid/ end=/^\s*$/
+sy region c4excite start=/%altgrid/ end=/^\s*$/
+sy region c4excite start=/%pullgrd/ end=/^\s*$/
 " sy region c4zmatrix start=/%1\w/ end=/^\s*$/
 " }}}
 

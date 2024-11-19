@@ -1,4 +1,4 @@
-au BufNewFile,BufRead *.c4,*.cfour,*.cccc,ZMAT,ZMATnew set ft=cfour
+au BufNewFile,BufRead *.c4,*.cfour,*.cccc,ZMAT,ZMATnew,zmat* set ft=cfour
 
 " if did_filetype()
 "   finish

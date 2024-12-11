@@ -15,7 +15,7 @@ endif
 syn case match
 syn region c4config 
             \ matchgroup=c4jobspec start='\*CFOUR('
-            \ skip='([TQ])' 
+            \ skip='([aDTQP2])' 
             \ matchgroup=c4jobspec end=')'
             \ contains=c4key,c4error
 " }}}
@@ -279,12 +279,19 @@ syn case match
 syntax match c4keyvalue "-\?\d\+" contained
 " ABCDTYPE allowed values
 syntax match c4keyvalue 'AOBASIS' contained
-" CALC allowed values
+" calclevel allowed values
 syntax match c4keyvalue 'HF' contained
 syntax match c4keyvalue 'SCF' contained
+syntax match c4keyvalue 'MP2' contained
+syntax match c4keyvalue 'MBPT(2)' contained
+syntax match c4keyvalue 'MBPT[2]' contained
+syntax match c4keyvalue 'CC2' contained
+syntax match c4keyvalue 'CC3' contained
 syntax match c4keyvalue 'CCSD' contained
 syntax match c4keyvalue 'CCSD(T)' contained
+syntax match c4keyvalue 'CCSD(T)(a)' contained
 syntax match c4keyvalue 'CCSDT' contained
+syntax match c4keyvalue 'CCSDT-3' contained
 syntax match c4keyvalue 'CCSDTQ' contained
 " CC_PORG allowed values
 syntax match c4keyvalue 'NCC' contained
@@ -297,12 +304,17 @@ syntax match c4keyvalue "OCCUPIED" contained
 syntax match c4keyvalue "DOCCUPIED" contained
 syntax match c4keyvalue "VIRTUAL" contained
 syntax match c4keyvalue "DVIRTUAL" contained
+" eom_nonit allowed values
+syntax match c4keyvalue "QTP" contained
+syntax match c4keyvalue "STAR" contained
 " ESTATE_PROP allowed value
 " matches suff like 13\0\12\1
 syntax match c4keyvalue "EXPECTATION" contained
 " ESTATE_SYM allowed value 
 syntax match c4keyvalue "\d\+\(\/\d\+\)\+" contained
 " EXCITE options
+syn match c4excitevalue 'CIS' contained
+syn match c4excitevalue 'CIS(D)' contained
 syn match c4excitevalue 'EOMIP' contained
 syn match c4excitevalue 'EOMEE' contained
 syn match c4excitevalue 'EOMEA' contained

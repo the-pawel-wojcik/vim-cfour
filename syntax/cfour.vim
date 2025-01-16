@@ -203,7 +203,7 @@ sy keyword c4key RAMAN_ORB nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key RDO nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key REDUCE_REPR nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key REFERENCE nextgroup=@c4kwVal contained skipwhite
-sy keyword c4key RELATIVIST nextgroup=@c4kwVal contained skipwhite
+sy keyword c4key RELAT[IVISTIC] nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key RELAX_DENS nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key RESET_FLAGS nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key RESTART_CC nextgroup=@c4kwVal contained skipwhite
@@ -272,6 +272,8 @@ sy keyword c4key ZSCALE_EXP nextgroup=@c4kwVal contained skipwhite
 
 syntax match c4separator '=' nextgroup=basisInput,c4keyvalue,c4excitevalue skipwhite contained
 
+" syntax match c4float '-\?\d\+\/\d\+\([eE]\?[-+]\d\+\)\?'
+
 " CFOUR's option values {{{
 " Back to the case sensitive part
 syn case match
@@ -304,6 +306,8 @@ syntax match c4keyvalue "OCCUPIED" contained
 syntax match c4keyvalue "DOCCUPIED" contained
 syntax match c4keyvalue "VIRTUAL" contained
 syntax match c4keyvalue "DVIRTUAL" contained
+" CONTRACTION allowed values
+syntax match c4keyvalue "UNCONTRACTED" contained
 " eom_nonit allowed values
 syntax match c4keyvalue "QTP" contained
 syntax match c4keyvalue "STAR" contained
@@ -330,6 +334,8 @@ syntax match c4keyvalue "CARTESIAN" contained
 syntax match c4keyvalue "CARTESIAN" contained
 " GRID_ALGORITHM allowed values
 syntax match c4keyvalue "PARALLEL" contained
+" RELATIVISTIC allowed values
+syntax match c4keyvalue "X2C1E" contained
 " MEM_UNIT allowed value
 syntax match c4keyvalue "GB" contained
 " " RESTART_CC allowed value
@@ -671,10 +677,11 @@ syn match focus_point "JODA beginning optimization cycle"
 syn match focus_point "Convergence criterion satisfied.  Optimization completed."
 " xncc CC part
 syn match focus_point "Total CCSDT\?Q\? energy:"
-syn match focus_point "Total CCSDT\?Q\? energy:"
+syn match focus_point "Total CCSD(T)\((a)\)\? energy:"
 " xncc EOM part
 syn match focus_point "EOM..-CCSDT\?Q\? \(excitation\|ionization\) energy:"
-syn match focus_point "Total EOM..-CCSDT\?Q\? energy:"
+syn match focus_point "EOM..-CCSD\((T)\((a)\)\?\|\*\) \(excitation\|ionization\) energy:"
+syn match focus_point "Total EOM..-CCSD\(T\?Q\?\|(T)\((a)\)\?\|\*\) energy:"
 syn match focus_point "Searching for\s*\d\+\s*roots in irrep\s*\d"
 " xvee
 syn match focus_point "Guess vectors transform as symmetry\s*\d\s*\."
@@ -711,6 +718,7 @@ hi def link focus_point Macro
 hi def link c4executable Identifier
 hi def link c4zmatrix Special
 hi def link c4error Error
+" hi def link c4float Ignore
 
 " https://arnaudr.io/2020/08/17/modify-vim-syntax-files-for-your-taste/
 " The following test requires this addition to your vimrc:

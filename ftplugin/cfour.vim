@@ -16,9 +16,15 @@ if exists("g:loaded_cfour")
 endif
 let g:loaded_cfour = 1
 
-set foldmethod=marker
-set foldmarker=--invoking,--executable
-set foldtext=C4foldtext()
+if !exists("g:cfour_fold")
+    let g:cfour_fold = 0
+endif
+
+if g:cfour_fold
+    set foldmethod=marker
+    set foldmarker=--invoking,--executable
+    set foldtext=C4foldtext()
+endif
 " The showit.sh script does clever stuff with eventually shows the molecule 
 " that is stored in a ZMAT file
 set makeprg=showit.sh

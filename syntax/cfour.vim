@@ -186,7 +186,7 @@ sy keyword c4key PNO_THR nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key PNO_USE nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key POINTS nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key PRINT nextgroup=@c4kwVal contained skipwhite
-sy keyword c4key PROPS nextgroup=@c4kwVal contained skipwhite
+sy keyword c4key PROP[S] nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key PROP_INTEGR nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key PSI nextgroup=@c4kwVal contained skipwhite
 sy keyword c4key QC_ALG nextgroup=@c4kwVal contained skipwhite
@@ -334,6 +334,8 @@ syntax match c4keyvalue "CARTESIAN" contained
 syntax match c4keyvalue "CARTESIAN" contained
 " GRID_ALGORITHM allowed values
 syntax match c4keyvalue "PARALLEL" contained
+" PROPS allowed values
+syntax match c4keyvalue "FIRST_ORDER" contained
 " RELATIVISTIC allowed values
 syntax match c4keyvalue "X2C1E" contained
 " MEM_UNIT allowed value

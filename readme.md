@@ -3,6 +3,7 @@ A [Vim](https://www.vim.org/) plugin for [CFOUR](https://cfour.uni-mainz.de/cfou
 
 ## Install
 
+### VimPlug
 1. Install [vim-plug](https://github.com/junegunn/vim-plug?tab=readme-ov-file#vim)
 ```bash
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -30,6 +31,24 @@ call plug#end()
 4. Issue the command `:PlugInstall`.
 
 Other vim-plug [commands](https://github.com/junegunn/vim-plug?tab=readme-ov-file#commands)
+
+### Lazy
+If you are using [Lazy](https://lazy.folke.io/) install with
+```lua
+-- Setup lazy.nvim
+require("lazy").setup({
+  spec = {
+    -- other plugins
+    {
+      "the-pawel-wojcik/vim-cfour",
+      config = function()
+        -- vim.g.cfour_fold = 1 -- uncomment if you like folds
+      end,
+    },
+    -- other plugins
+  },
+})
+```
 
 ## Features 
 1. Colored ZMAT.

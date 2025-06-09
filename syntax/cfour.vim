@@ -359,6 +359,11 @@ syntax match c4keyvalue "PARALLEL" contained
 syn match c4error ',\s*$' contained
 " }}}
 
+" CFOUR's ZMAT's comments {{{
+" The first line is always a comment
+syn match c4comment '\%^.*$'
+" }}}
+
 " Basis option values {{{1
 syn match basisInput 'SPECIAL' contained
 " List all basis sets with:
@@ -720,6 +725,7 @@ hi def link focus_point Macro
 hi def link c4executable Identifier
 hi def link c4zmatrix Special
 hi def link c4error Error
+hi def link c4comment Comment
 " hi def link c4float Ignore
 
 " https://arnaudr.io/2020/08/17/modify-vim-syntax-files-for-your-taste/

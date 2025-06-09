@@ -1,4 +1,4 @@
-# vimc4
+# vim-cfour
 A [Vim](https://www.vim.org/) plugin for [CFOUR](https://cfour.uni-mainz.de/cfour/).
 
 ## Install
@@ -35,7 +35,7 @@ Other vim-plug [commands](https://github.com/junegunn/vim-plug?tab=readme-ov-fil
 1. Colored ZMAT.
 2. Colored elements of the output.
 3. Folded output (optional). To active the folds add at the end of your vimrc
-```vimscript
+```vim
 let g:cfour_fold = 1
 ```
 See `:help usr_28` for more about folds.
@@ -77,6 +77,6 @@ jmol.sh -L -g2000x1000 geometry.xyz
 
 After all this effor you can type `:make` to view the molecule. I use the extra
 remap
-```vimscript
+```vim
 nnoremap <leader>m <cmd>make<CR>
 ```
